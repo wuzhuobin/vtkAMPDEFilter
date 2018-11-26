@@ -1,7 +1,7 @@
 // c
 #include <stdio.h>
 // me
-#include "vtkAMPDEFilter2.h"
+#include "vtkAMPDEFilter.h"
 // vtk
 #include <vtkNew.h>
 #include <vtkNIFTIImageReader.h>
@@ -22,12 +22,12 @@ int main(int argc, char **argv)
 	reader->SetFileName(argv[1]);
 	reader->Update();
 
-	vtkNew<vtkAMPDEFilter2> filer;
+	vtkNew<vtkAMPDEFilter> filer;
 	filer->SetInputConnection(reader->GetOutputPort());
-	filer->SetKMeans(std::vector<double>{-1000, 0, 1000, 2000});
-	filer->SetAluminiumMean(3);
-	filer->SetTargetVolume(5555);
-	filer->SetVolumeTolerance(3333);
+	filer->SetKMeans(std::vector<double>{-1000, 600, 2000});
+	filer->SetAluminiumMean(2);
+	filer->SetTargetVolume(3134);
+	filer->SetVolumeTolerance(1000);
 	filer->Update();
 
 	vtkNew<vtkPolyDataWriter> writer;
