@@ -1,26 +1,26 @@
  /**
- * @file	Project\code\filter\vtkAluminiumMarkerPolyDataExtraction.cxx
+ * @file		vtkAMPDEFilter.cxx
  * @language	C++
- * @author	wuzhuobin jiejin2022@163.com
- * @date	2017/12/28
+ * @author		wuzhuobin jiejin2022@163.com
+ * @date		2017/12/28
+ * @copyright
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
- *			This program is distributed in the hope that it will be useful, but	 *
- *			WITHOUT ANY WARRANTY; without even the implied warranty of			 * 
- *			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.				 * 
- *			See the LICENSE for more detail.									 * 
- *			Copyright (c) WUZHUOBIN. All rights reserved.						 * 
- *			See COPYRIGHT for more detail.										 * 
- *			This software is distributed WITHOUT ANY WARRANTY; without even		 * 
- *			the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	 * 
- *			PURPOSE.  See the above copyright notice for more information.		 *
- *			Internal usage only, without the permission of the author, please DO *
- *			NOT publish and distribute without the author's permission.  	     *
+	This program is distributed in the hope that it will be useful, but	 <br>
+	WITHOUT ANY WARRANTY; without even the implied warranty of			 <br> 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.				 <br> 
+	See the LICENSE for more detail.									 <br> 
+	Copyright (c) WUZHUOBIN. All rights reserved.						 <br> 
+	See COPYRIGHT for more detail.										 <br> 
+	This software is distributed WITHOUT ANY WARRANTY; without even		 <br> 
+	the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	 <br> 
+	PURPOSE.  See the above copyright notice for more information.		 <br>
+	Internal usage only, without the permission of the author, please DO <br>
+	NOT publish and distribute without the author's permission.  	     <br>
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * @example vtkAMPDEFilterExample/main/main.cpp
  */
 // me
 #include "vtkAMPDEFilter.h"
-
-
 // vtk
 #include <vtkObjectFactory.h>
 #include <vtkInformation.h>
@@ -30,9 +30,6 @@
 #include <vtkNew.h>
 #include <vtkSmartPointer.h>
 #include <vtkMarchingCubes.h>
-
-
-
 // itk
 #include <itkResampleImageFilter.h>
 #include <itkIdentityTransform.h>

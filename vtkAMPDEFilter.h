@@ -1,20 +1,21 @@
  /**
- * @file		QvtkProject\Src\Filter\vtkAMPDEFilter.h
+ * @file		vtkAMPDEFilter.h
  * @language	C++
  * @author		wuzhuobin jiejin2022@163.com
  * @date		2017/12/28
+ * @copyright
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
- *			This program is distributed in the hope that it will be useful, but	 *
- *			WITHOUT ANY WARRANTY; without even the implied warranty of			 * 
- *			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.				 * 
- *			See the LICENSE for more detail.									 * 
- *			Copyright (c) WUZHUOBIN. All rights reserved.						 * 
- *			See COPYRIGHT for more detail.										 * 
- *			This software is distributed WITHOUT ANY WARRANTY; without even		 * 
- *			the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	 * 
- *			PURPOSE.  See the above copyright notice for more information.		 *
- *			Internal usage only, without the permission of the author, please DO *
- *			NOT publish and distribute without the author's permission.  	     *
+	This program is distributed in the hope that it will be useful, but	 <br>
+	WITHOUT ANY WARRANTY; without even the implied warranty of			 <br> 
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.				 <br> 
+	See the LICENSE for more detail.									 <br> 
+	Copyright (c) WUZHUOBIN. All rights reserved.						 <br> 
+	See COPYRIGHT for more detail.										 <br> 
+	This software is distributed WITHOUT ANY WARRANTY; without even		 <br> 
+	the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR	 <br> 
+	PURPOSE.  See the above copyright notice for more information.		 <br>
+	Internal usage only, without the permission of the author, please DO <br>
+	NOT publish and distribute without the author's permission.  	     <br>
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  */
 #ifndef __VTK_AMPDE_FILTER_H__
@@ -33,11 +34,14 @@ class vtkImageData;
  * @author	WUZHUOBIN
  * @date	2018/06/28	
  * @since	2017/12/28
+ * 
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * This class was only applied to 2 phantom images which has an aluminium marker. It might not 
  * be appliable to real human mandible or maxilla. 
  * Artifact in CBCT can cause the aluminium marker in image to become disuniform. K-means cannot seperate
  * an uniform label. 
+ * <h4>Examples</h4>
+ * @include vtkAMPDEFilterExample/main/main.cpp
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *  
  * @date	2017/12/28
  * This class is not yet completed yet, it is not efficient. The original thought was that it 
@@ -68,7 +72,7 @@ class vtkImageData;
  * @date	2018/06/28
  * According to the new phantom, the new phantom material was different from the old phantom which
  * had different intensity distribution. Since then,  vtkAMPDEFilter#ResampleSize, 
- * vtkAMPDEFilter#KMeans, vtkAMPDEFilter#AluminiMean, parameters was added to this filter. 
+ * vtkAMPDEFilter#KMeans, vtkAMPDEFilter#AluminiumMean, parameters was added to this filter. 
  * By seting above parameters, the filter can apply to different situation. 
  * @date	2018/10/10
  * Adding the image segmentation output as the second ouptut port for easier debuging.
@@ -78,7 +82,6 @@ class vtkImageData;
  * Anyway, by doing masking can optimize other thresholding. 
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
  */
-
 class VTKAMPDEFILTER_EXPORT vtkAMPDEFilter : public vtkPolyDataAlgorithm
 {
 public:
@@ -96,7 +99,6 @@ public:
 	/**
 	 * @fn	virtual void PrintSelf(ostream& os, vtkIndent indent) VTK_OVERRIDE;
 	 * @brief	 vtk PrintSelf method.
-	 * @override
 	 * @param[in]		os
 	 * @param[in]		indent
 	 */
@@ -229,7 +231,6 @@ protected:
 	 *	vtkInformationVector ** inputVector, 
 	 *	vtkInformationVector * outputVector) VTK_OVERRIDE;	
 	 * @brief	vtk pipeline method. 
-	 * @override
 	 */
 	virtual int RequestData(
 		vtkInformation *request, 
@@ -253,9 +254,8 @@ protected:
 	virtual int FillOutputPortInformation(int port, vtkInformation *info) VTK_OVERRIDE;
 
 	/**
-	 * @fn 	template<typename ScalarType>
-	 *		int ITK_Calculation(vtkImageData* input, vtkImageData* output);
-	 * @brief using itk filter to do calculation. 
+	 * @fn 				int ITK_Calculation(vtkImageData* input, vtkImageData* output);
+	 * @brief 			using itk filter to do calculation. 
 	 * @tpatam			ScalarType	the scalar type of the vtkImageData, for using vtkTypeMacro.
 	 * @param[in]		input input image. 
 	 * @param[out]		output output image. 
@@ -273,5 +273,4 @@ private:
 	vtkAMPDEFilter(const vtkAMPDEFilter&) VTK_DELETE_FUNCTION;
 	void operator=(const vtkAMPDEFilter&) VTK_DELETE_FUNCTION;
 };
-
 #endif // !__VTK_AMPDE_FILTER_H__
